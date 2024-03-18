@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registration Form</title>
+    <title>Login</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -25,17 +25,17 @@
         </div>
     </nav>
     <div class="container mt-4">
-        <h1>User Registration</h1>
-        <form action="/register" method="post">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" name="username">
-            </div>
+        <h1>Login</h1>
+        <form action="/login" method="post">
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email">
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
 </body>

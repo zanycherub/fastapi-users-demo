@@ -1,5 +1,5 @@
-from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, Request, Form, Depends, HTTPException, status
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -17,6 +17,12 @@ class User(BaseModel):
     username: str
     email: str
 
+def authenticate_user(username: str, email: str):
+    for user in users_db:
+        if user.username == username and user.email == email:
+            return True
+    return False
+
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
@@ -30,3 +36,14 @@ async def register(request: Request, username: str = Form(...), email: str = For
 @app.get("/users", response_class=HTMLResponse)
 async def list_users(request: Request):
     return templates.TemplateResponse("users.html", {"request": request, "users": users_db})
+
+@app.get("/login", response_class=HTMLResponse)
+async def login_page(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+@app.post("/login")
+async def login(request: Request, email: str = Form(...), password: str = Form(...),):
+    if authenticate_user(email, password):
+        return RedirectResponse("/users")
+    else:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
