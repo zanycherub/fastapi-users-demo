@@ -1,3 +1,5 @@
+// login.js
+
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     const form = event.target;
@@ -9,10 +11,10 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     if (response.ok) {
         // Show success message pop-up
         document.getElementById('successPopup').style.display = 'block';
-        // Redirect to users page after 1 second
+        // Redirect to users page after 2 seconds
         setTimeout(() => {
             window.location.href = '/users';
-        }, 1000);
+        }, 2000);
     } else {
         alert('Login failed. Please check your credentials.');
     }
