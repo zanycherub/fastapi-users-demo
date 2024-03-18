@@ -1,5 +1,5 @@
 ## FAST API - USERS WEB APP DEMO
-Created for DEMO purposes using FAST API as Python Web Frameworm and Bootstrap for UI.
+Created for DEMO purposes using FAST API as Python Web Framework and Bootstrap for UI.
 
 ```
 python3 -m venv env
