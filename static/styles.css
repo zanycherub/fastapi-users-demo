@@ -1,0 +1,37 @@
+/* styles.css */
+
+/* Navbar */
+.navbar {
+    margin-bottom: 20px; /* Add margin below navbar */
+}
+
+/* Form container */
+.form-container {
+    margin-top: 20px; /* Add margin above form */
+}
+
+/* Success message popup */
+.modal-dialog {
+    margin-top: 20%; /* Adjust modal position */
+}
+
+/* Dark mode */
+.dark-mode body {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+
+/* Custom styles for the success message pop-up */
+.success-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #dff0d8;
+    border-color: #d0e9c6;
+    color: #3c763d;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    display: none;
+}
